@@ -1,0 +1,62 @@
+ ======================================================================
+ =================== CONTOH STRUKTUE FOLDER BACKEND ===================
+ ======================================================================
+
+ 
+src/
+├── modules/
+│   └── products/
+│       ├── domain/
+│       │   ├── entities/
+│       │   │   └── product.entity.ts
+│       │   ├── value-objects/ ******* Berisi value object, yaitu objek kecil yang merepresentasikan suatu nilai bisnis dan memastikan nilai tersebut valid.
+│       │   │   ├── product-id.vo.ts
+│       │   │   ├── sku.vo.ts
+│       │   │   └── product-price.vo.ts
+│       │   ├── repositories/ ****** Berisi kontrak atau interface repository, bukan implementasi query database.
+│       │   │   └── product.repository.ts
+│       │   ├── services/ ******Berisi domain service untuk aturan bisnis yang tidak cocok ditempatkan pada satu entity atau value object saja.
+│       │   ├── events/
+│       │   └── exceptions/
+│       │
+│       ├── application/
+│       │   ├── use-cases/  ***** Setiap file mewakili satu tindakan atau kebutuhan bisnis.
+│       │   │   ├── create-product.use-case.ts
+│       │   │   ├── get-product.use-case.ts
+│       │   │   ├── list-products.use-case.ts
+│       │   │   ├── update-product.use-case.ts
+│       │   │   └── delete-product.use-case.ts
+│       │   ├── dto/          ***** DTO (Data Transfer Object) membawa data antarbagian aplikasi.
+│       │   ├── mappers/
+│       │   └── ports/
+│       │
+│       ├── infrastructure/
+│       │   ├── persistence/              ***Berisi kode yang berhubungan dengan penyimpanan dan pengambilan data.
+│       │   │   ├── prisma-product.repository.ts
+│       │   │   └── product.persistence-mapper.ts
+│       │   └── product-infrastructure.module.ts
+│       │
+│       ├── presentation/
+│       │   └── http/
+│       │       ├── controllers/
+│       │       │   └── products.controller.ts
+│       │       ├── schemas/ ******* Berisi schema validasi request menggunakan Zod.
+│       │       │   └── create-product.schema.ts
+│       │       └── presenters/
+│       │
+│       ├── products.module.ts ******* File ini adalah module utama NestJS untuk fitur produk.
+│       └── index.ts ******* File ini biasanya digunakan sebagai barrel file untuk mengekspor API publik dari suatu folder atau modul.
+│
+├── infrastructure/
+│   └── database/ ******** Folder ini menampung infrastruktur database yang dipakai bersama oleh beberapa modul.
+│       ├── prisma.service.ts ******* Menginisialisasi Prisma Client dan adapter PostgreSQL, serta mengelola koneksi database.
+│       └── prisma.module.ts ******** Mendaftarkan dan mengekspor PrismaService sebagai provider NestJS.
+│
+├── shared/
+│   ├── domain/ ******* Primitive atau abstraksi domain umum yang memang dipakai beberapa domain.
+│   ├── application/ ******* Abstraksi application umum seperti hasil operasi atau pagination.
+│   ├── infrastructure/ ******* Utilitas teknis bersama yang dibutuhkan beberapa modul.
+│   └── presentation/ ********* Filter exception HTTP, response helper, atau komponen presentation bersama.
+│
+├── app.module.ts
+└── main.ts
