@@ -19,7 +19,7 @@ model User {
   email        String   @unique @db.VarChar(255)
   passwordHash String   @db.VarChar(255)
   role         Int      @db.SmallInt
-  isActive     Boolean  @default(true)
+  isActive     Int      @default(1)
   createdAt    DateTime @default(now()) @db.Timestamptz(6)
   updatedAt    DateTime @updatedAt @db.Timestamptz(6)
 

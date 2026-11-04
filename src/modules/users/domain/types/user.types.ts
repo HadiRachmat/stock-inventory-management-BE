@@ -1,6 +1,7 @@
 import { EmailVo } from '../value-objects/email.vo.js';
 import { NameVo } from '../value-objects/name.vo.js';
 import { RoleVo } from '../value-objects/role.vo.js';
+import { IsActiveVo } from '../value-objects/isActive.vo.js';
 
 export interface UserProps {
   id: number;
@@ -8,17 +9,20 @@ export interface UserProps {
   email: EmailVo;
   passwordHash: string;
   role: RoleVo;
-  isActive: boolean;
+  isActive: IsActiveVo;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface CreateUserProps {
-  name: NameVo;
-  email: EmailVo;
-  role: RoleVo;
-  passwordHash: string;
-}
+export type CreateUserProps = Pick<
+  UserProps,
+  'name' | 'email' | 'passwordHash' | 'role' | 'isActive'
+>;
 
-export interface UpdateUserProps {
-  name?: NameVo;
-  isActive?: boolean;
-}
+export type UpdateUserProps = Partial<
+  Pick<UserProps, 'name' | 'email' | 'role' | 'isActive'>
+>;
+
+export type UserFilter = Partial<
+  Pick<UserProps, 'name' | 'email' | 'role' | 'isActive'>
+>;
