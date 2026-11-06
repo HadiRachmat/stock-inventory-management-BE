@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { RoleVo } from '../../../domain/value-objects/role.vo.js';
-import { IsActiveVo } from '../../../domain/value-objects/isActive.vo.js';
+import { RoleVo } from '../../../../domain/value-objects/role.vo.js';
+import { IsActiveVo } from '../../../../domain/value-objects/isActive.vo.js';
 
 export const userFilterSchema = z.object({
   search: z.string().trim().optional(),

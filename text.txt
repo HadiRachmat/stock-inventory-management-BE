@@ -60,3 +60,46 @@ src/
 │
 ├── app.module.ts
 └── main.ts
+
+
+======================================================================
+====================== flow of logic appliaton =======================
+======================================================================
+
+1.Controller menerima request
+  POST /users/create
+  Request body diterima sebagai unknown.
+
+
+
+2. Zod melakukan validasi
+    Data berhasil divalidasi. Nilai isActive otomatis menjadi 1 karena default pada schema.
+
+
+
+3. Use Case dijalankan
+    Controller memanggil this.createUser() dan meneruskan data ke Application Layer.
+
+
+
+3. Value Object dibuat
+    NameVo, EmailVo, RoleVo, dan IsActiveVo berhasil dibuat.
+
+
+
+4. Repository memeriksa email
+    Prisma menjalankan findUnique(). Hasilnya null, artinya email belum terdaftar.
+
+
+
+5. Password di-hash
+    Password mentah diproses oleh passwordHasher.hash().
+
+
+
+6. Data disimpan
+    Repository menjalankan proses penyimpanan melalui Prisma. ID user yang dihasilkan adalah 1.
+
+
+7. Controller mengembalikan response
+    User berhasil dibuat dan response disiapkan menggunakan toUserResponse().

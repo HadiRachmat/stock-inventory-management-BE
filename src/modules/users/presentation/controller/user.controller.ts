@@ -30,9 +30,9 @@ import { updateUserUseCase } from '../../application/use-case/update-user.user-c
 // import { deactivateUser } from '../../application/use-cases/deactivate-user.use-case.js';
 // import { deleteUser } from '../../application/use-cases/delete-user.use-case.js';
 
-import { createUserSchema } from '../http/dto/create-user.dto.js';
-import { updateUserSchema } from '../http/dto/update-user.dto.js';
-import { userFilterSchema } from '../http/dto/user-filter.dto.js';
+import { createUserSchema } from '../http/dto/users/create-user.dto.js';
+import { updateUserSchema } from '../http/dto/users/update-user.dto.js';
+import { userFilterSchema } from '../http/dto/users/user-filter.dto.js';
 
 import {
   toUserResponse,

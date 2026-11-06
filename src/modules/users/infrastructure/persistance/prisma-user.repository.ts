@@ -5,7 +5,7 @@ import type {
   CreateUserProps,
   UpdateUserProps,
   UserFilter,
-} from '../../domain/types/user.types.js';
+} fy)rom '../../domain/types/user.types.js';
 import type { UserEntity } from '../../domain/entities/user.entity.js';
 import {
   toUserEntity,

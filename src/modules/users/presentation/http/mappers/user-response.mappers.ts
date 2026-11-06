@@ -1,6 +1,6 @@
 import type { UserEntity } from '../../../domain/entities/user.entity.js';
 
-import type { UserResponseDto } from '../dto/user-response.dto.js';
+import type { UserResponseDto } from '../../types/users/user-response.dto.js';
 
 export const toUserResponse = (user: UserEntity): UserResponseDto => ({
   id: user.id,
