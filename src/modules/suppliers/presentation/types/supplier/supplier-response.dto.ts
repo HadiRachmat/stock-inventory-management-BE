@@ -4,6 +4,4 @@ export interface SupplierResponseDTO {
   address: string;
   phone: string;
   email: string;
-  createdAt: Date;
-  updatedAt: Date;
 }

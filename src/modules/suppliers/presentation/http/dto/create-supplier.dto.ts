@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const createSuppliersschmema = z.object({
+export const createSuppliersSchmema = z.object({
   name: z.string().trim().min(3, { message: "Name cann't be empty" }).max(50),
   email: z.string().trim().email({ message: 'Invalid email address' }),
   phone: z
