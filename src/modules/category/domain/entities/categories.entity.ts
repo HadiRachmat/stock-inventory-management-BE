@@ -1,12 +1,13 @@
-import type { CategoryProps } from '../types/categories-domain.types.js';
+import type {
+  CategoryProps,
+  CreateCategoryProps,
+} from '../types/categories-domain.types.js';
 import { ProductEntity } from '../../../products/domain/entities/product.entity.js';
 
 export class CategoryEntity {
   private constructor(private readonly props: CategoryProps) {}
 
-  static create(
-    props: Omit<CategoryEntity, 'id' | 'createdAt' | 'updatedAt'>,
-  ): CategoryEntity {
+  static create(props: CreateCategoryProps): CategoryEntity {
     const now = new Date();
     const categoryRequestProps: CategoryProps = {
       ...props,
@@ -26,11 +27,11 @@ export class CategoryEntity {
   }
 
   get name(): string {
-    return this.props.name;
+    return this.props.name.getValue();
   }
 
   get description(): string {
-    return this.props.description;
+    return this.props.description.getValue();
   }
 
   get product(): ProductEntity[] | undefined {
