@@ -8,7 +8,7 @@ const normalizeName = (name: string): string => {
       throw new ErrorException('Name cannot exceed 50 characters', 400);
     case names.length < 3:
       throw new ErrorException('Name cannot be less than 3 characters', 400);
-    case names != name.toString().replace(/[^a-zA-Z\s]/g, ''):
+    case names != name.toString():
       throw new ErrorException('Name can only contain letters and spaces', 400);
     default:
       return names;
